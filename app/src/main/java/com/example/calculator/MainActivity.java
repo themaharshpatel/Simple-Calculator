@@ -34,10 +34,11 @@ public class MainActivity extends AppCompatActivity {
         {
             resultTextView.setText("0");
         }
+
         else if(operators.contains(inputText))
         {
             operand = resultText;
-            operator = inputText;
+            String randomoper = inputText;
             resultTextView.setText(inputText);
         }
         else if(inputText.matches("[0-9]+"))
