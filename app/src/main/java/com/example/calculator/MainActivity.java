@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-
     String inputText, resultText;
     String operator, operand;
     TextView resultTextView;
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity {
     public void onBtnClicked(View view){
         inputText = view.getTag().toString();
         resultText = resultTextView.getText().toString();
-
         if(inputText.equals("AC"))
         {
             resultTextView.setText("0");
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         else if(operators.contains(inputText))
         {
             operand = resultText;
-            String randomoper = inputText;
+            operator = inputText;
             resultTextView.setText(inputText);
         }
         else if(inputText.matches("[0-9]+"))
@@ -57,28 +55,28 @@ public class MainActivity extends AppCompatActivity {
             int num1 = Integer.parseInt(operand);
             int num2 = Integer.parseInt(resultText);
 
-            if(operator.equals("+"))
-            {
-                int ans = num1 + num2;
-                resultTextView.setText(String.valueOf(ans));
-            }
-            else if(operator.equals("-"))
-            {
-                int ans = num1 - num2;
-                resultTextView.setText(String.valueOf(ans));
-            }
-            else if(operator.equals("*"))
-            {
-                int ans = num1 * num2;
-                resultTextView.setText(String.valueOf(ans));
-            }
-            else if(operator.equals("/"))
-            {
-                int ans = num1 / num2;
-                resultTextView.setText(String.valueOf(ans));
+            switch (operator) {
+                case "+": {
+                    int ans = num1 + num2;
+                    resultTextView.setText(String.valueOf(ans));
+                    break;
+                }
+                case "-": {
+                    int ans = num1 - num2;
+                    resultTextView.setText(String.valueOf(ans));
+                    break;
+                }
+                case "*": {
+                    int ans = num1 * num2;
+                    resultTextView.setText(String.valueOf(ans));
+                    break;
+                }
+                case "/": {
+                    int ans = num1 / num2;
+                    resultTextView.setText(String.valueOf(ans));
+                    break;
+                }
             }
         }
-
-//its a test for vcs
     }
 }
